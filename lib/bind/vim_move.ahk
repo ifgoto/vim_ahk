@@ -44,10 +44,13 @@ b::Vim.Move.Repeat("b")
 +g::Vim.Move.Move("+g")
 ; Space
 Space::Vim.Move.Repeat("l")
-#If Vim.IsVimGroup() and (Vim.State.StrIsInCurrentVimMode("Vim_")) and not WinActive("ahk_group VimNonEditor")
-; Enter
-Enter::
-  Vim.Move.Repeat("j")
-  Vim.Move.Move("^")
+;skip the enter key for the double commander begin
+;#If Vim.IsVimGroup() and (Vim.State.StrIsInCurrentVimMode("Vim_")) and not WinActive("ahk_group VimNonEditor")
+;; Enter
+;Enter::
+;  MsgBox, 1
+;  Vim.Move.Repeat("j")
+;  Vim.Move.Move("^")
+;skip the enter key for the double commander begin
   Return
 #If

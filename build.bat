@@ -1,5 +1,5 @@
 @echo off
-SET AHKPath=C:\Program Files\AutoHotkey
+SET AHKPath=D:/soft/AutoHotkey
 REM Takes a simple optional command parameter, /t, which starts testing before build.
 SET Param1=%1
 

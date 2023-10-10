@@ -12,8 +12,17 @@ Return
 
 ; Suspend/restart
 #If
-^!+s::
+;^!+s::
+;just swap with the ctrl+x |cut
+^x::
   Vim.State.ToggleEnabled()
 Return
 
+#If
+
+; Check Mode
+#If Vim.State.IsCurrentVimMode("Insert")
+^h::
+  SendInput, {BackSpace 1}
+Return
 #If
