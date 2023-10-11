@@ -158,7 +158,9 @@ SendTestToNotepadAndReturnResult(test){
     Clipboard :=""
     Clipboard := SampleText
     Clipwait
-    send ^v ; Paste
+    ;;for the confliction with ctrl+v to paste, switch to q
+    ;send ^v ; Paste
+    send ^q ; Paste
     RestoreClipboard()
     sleep,50
     ; Make sure we are in normal mode to start with, at start of text.

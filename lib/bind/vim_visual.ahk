@@ -1,7 +1,9 @@
 ﻿; Visual Char/Block/Line
 #If Vim.IsVimGroup() and (Vim.State.IsCurrentVimMode("Vim_Normal"))
 v::Vim.State.SetMode("Vim_VisualChar")
-^v::
+;;for the confliction with ctrl+v to paste, switch to q
+;^v::
+^q::
   Send, ^b
   Vim.State.SetMode("Vim_VisualChar")
 Return
@@ -69,7 +71,9 @@ Return
   Send, ^c
   ClipWait, 1
   Send, ^f
-  Send, ^v!f
+  ;;for the confliction with ctrl+v to paste, switch to q 
+  ;Send, ^v!f
+  Send, ^q!f
   clipboard := bak
   Vim.State.SetMode("Vim_Normal")
 Return

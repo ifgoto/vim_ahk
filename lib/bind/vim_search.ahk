@@ -10,7 +10,9 @@ Return
   Send, ^{Left}+^{Right}^c
   ClipWait, 1
   Send, ^f
-  Send, ^v!f
+  ;;for the confliction with ctrl+v to paste, switch to q
+  ;Send, ^v!f
+  Send, ^q!f
   clipboard := bak
   Vim.State.SetMode("Insert")
 Return

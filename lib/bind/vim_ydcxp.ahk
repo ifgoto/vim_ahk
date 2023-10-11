@@ -1,4 +1,7 @@
-﻿#If Vim.IsVimGroup() and (Vim.State.IsCurrentVimMode("Vim_Normal"))
+﻿;;for the confliction with ctrl+v to paste, switch to q
+;;^v-->^q
+
+#If Vim.IsVimGroup() and (Vim.State.IsCurrentVimMode("Vim_Normal"))
 y::Vim.State.SetMode("Vim_ydc_y", 0, -1, 0)
 d::Vim.State.SetMode("Vim_ydc_d", 0, -1, 0)
 c::Vim.State.SetMode("Vim_ydc_c", 0, -1, 0)
@@ -84,13 +87,13 @@ p::
   ;}
   if(Vim.State.LineCopy == 1){
     if WinActive("ahk_group VimNoLBCopyGroup"){
-      Send, {End}{Enter}^v{Home}
+      Send, {End}{Enter}^q{Home}
     }else{
-      Send, {End}{Enter}^v{BS}{Home}
+      Send, {End}{Enter}^q{BS}{Home}
     }
   }else{
     Send, {Right}
-    Send, ^v
+    Send, ^q
     ;Sleep, 1000
     Send, {Left}
     ;;Send, ^{Left}
@@ -100,9 +103,9 @@ Return
 
 +p::
   if(Vim.State.LineCopy == 1){
-    Send, {Up}{End}{Enter}^v{BS}{Home}
+    Send, {Up}{End}{Enter}^q{BS}{Home}
   }else{
-    Send, ^v
+    Send, ^q
     ;Send,^{Left}
   }
   KeyWait, p

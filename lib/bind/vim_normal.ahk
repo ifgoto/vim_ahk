@@ -17,7 +17,9 @@ u::Send,^z
   }else if(Clipboard is upper){
     StringLower, Clipboard, Clipboard
   }
-  Send, ^v
+  ;;for the confliction with ctrl+v to paste, switch to q
+  ;Send, ^v
+  Send, ^q
   Clipboard := bak
 Return
 
@@ -35,7 +37,10 @@ Return
 Return
 
 ; period
-.::Send, +^{Right}{BS}^v
+
+;;for the confliction with ctrl+v to paste, switch to q
+;.::Send, +^{Right}{BS}^v
+.::Send, +^{Right}{BS}^q
 
 ; Q-dir
 #If Vim.IsVimGroup() and WinActive("ahk_group VimQdir") and (Vim.State.Mode == "Vim_Normal")
